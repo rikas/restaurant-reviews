@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @restaurant.name %>  <%= '⭐️' * @restaurant.stars %>
+</h2>
+
+<p>
+  <%= @restaurant.address %>
+</p>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.content %> <%= link_to '🗑', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add review', new_restaurant_review_path(@restaurant), class: 'btn btn-secondary' %>
+
+<p>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %> |
+  <%= link_to 'Chef info', chef_restaurant_path(@restaurant) %>
+</p>

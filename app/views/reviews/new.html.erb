@@ -1,0 +1,12 @@
+<h1>Add review about <%= @restaurant.name %></h1>
+
+<!--
+<form method="post" action="/reviews">
+<form method="post" action="/restaurants/5/reviews">
+-->
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%#= f.association :restaurant %>
+  <%= f.submit %>
+<% end %>
